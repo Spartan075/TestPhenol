@@ -15,10 +15,10 @@ public class PhenolCreativeModeTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, PhenolTest.MODID);
 
     public static final RegistryObject<CreativeModeTab>  PHENOL_TAB = CREATIVE_MODE_TABS.register("phenol_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(Registration.SugoiRefineryItem.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(Registration.SUGOI_REFINERY_ITEM.get()))
                     .title(Component.translatable("creativetab.phenol_tab"))
                     .displayItems((pParameters, pOutput) -> {
-                        pOutput.accept(Registration.SugoiRefineryItem.get());
+                        pOutput.accept(Registration.SUGOI_REFINERY_ITEM.get());
                     })
                     .build());
 

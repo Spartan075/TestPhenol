@@ -82,7 +82,7 @@ public class SugoiRefineryEntity extends BlockEntity {
     };
 
     public SugoiRefineryEntity(BlockPos pos, BlockState state) {
-        super(Registration.SugoiRefineryBlockEntity.get(), pos, state);
+        super(Registration.SUGOI_REFINERY_BE.get(), pos, state);
     }
 
     @Override
