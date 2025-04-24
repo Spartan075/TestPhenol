@@ -1,7 +1,8 @@
-package PhenolTestMod;
+package net.spartan075.phenoltest;
 
-import PhenolTestMod.Fluids.ModFluidTypes;
-import PhenolTestMod.Fluids.ModFluids;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.spartan075.phenoltest.Fluids.ModFluidTypes;
+import net.spartan075.phenoltest.Fluids.ModFluids;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.inventory.MenuType;
@@ -20,8 +21,10 @@ import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.spartan075.phenoltest.blocks.SugoiRefinery.SugoiRefineryBlock;
+import net.spartan075.phenoltest.blocks.SugoiRefinery.SugoiRefineryEntity;
 
-import static PhenolTestMod.PhenolTest.MODID;
+import static net.spartan075.phenoltest.PhenolTest.MODID;
 
 public class Registration {
 
@@ -35,9 +38,11 @@ public class Registration {
     public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
     public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("example_block", () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties()));
 
-    // Register the Sugoi Refinery block and its item
-    public static final RegistryObject<Block> SugoiRefineryBLock = BLOCKS.register("Sugoi Refinery", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
-    public static final RegistryObject<Item> SugoiRefineryItem = ITEMS.register("Sugoi Refinery", () -> new BlockItem(SugoiRefineryBLock.get(), new Item.Properties()));
+    // Register the Sugoi Refinery block, item, and entity
+    public static final RegistryObject<Block> SugoiRefineryBlock = BLOCKS.register("sugoi_refinery", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
+    public static final RegistryObject<Item> SugoiRefineryItem = ITEMS.register("sugoi_refinery", () -> new BlockItem(SugoiRefineryBlock.get(), new Item.Properties()));
+    public static final RegistryObject<BlockEntityType<SugoiRefineryEntity>> SugoiRefineryBlockEntity = BLOCK_ENTITIES.register("sugoi_refinery_block_entity",
+            () -> BlockEntityType.Builder.of(SugoiRefineryBlock::new, validBlocks).build(null));
 
     // Register fluids
     public static final DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, PhenolTest.MODID);
@@ -72,7 +77,12 @@ public class Registration {
     // Add the example block item to the building blocks tab
     static void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
-            event.accept(EXAMPLE_BLOCK_ITEM);
+            event.accept(Registration.EXAMPLE_ITEM);
+            event.accept(Registration.EXAMPLE_BLOCK_ITEM);
+            event.accept(Registration.EXAMPLE_BLOCK);
+            event.accept(Registration.SugoiRefineryBlock);
+            event.accept(Registration.OIL_BLOCK);
+            event.accept(Registration.OIL_BUCKET);
     }
 
 }

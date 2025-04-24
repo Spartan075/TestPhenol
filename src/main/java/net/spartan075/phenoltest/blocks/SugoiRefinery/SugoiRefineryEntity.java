@@ -1,16 +1,16 @@
-package PhenolTestMod.blocks.SugoiRefinery;
+package net.spartan075.phenoltest.blocks.SugoiRefinery;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.fluids.capability.FluidHandlerBlockEntity;
-import net.minecraftforge.fluids.capability.templates.FluidHandlerItemStack;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.spartan075.phenoltest.Registration;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import org.jetbrains.annotations.NotNull;
 
@@ -82,7 +82,7 @@ public class SugoiRefineryEntity extends BlockEntity {
     };
 
     public SugoiRefineryEntity(BlockPos pos, BlockState state) {
-        super(SugoiRefineryEntity.get(), pos, state);
+        super(Registration.SugoiRefineryBlockEntity.get(), pos, state);
     }
 
     @Override

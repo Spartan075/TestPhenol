@@ -1,4 +1,4 @@
-package PhenolTestMod.Fluids;
+package net.spartan075.phenoltest.Fluids;
 
 import com.mojang.blaze3d.shaders.FogShape;
 import com.mojang.blaze3d.systems.RenderSystem;

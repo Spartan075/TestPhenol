@@ -1,6 +1,6 @@
-package PhenolTestMod.Fluids;
+package net.spartan075.phenoltest.Fluids;
 
-import PhenolTestMod.Registration;
+import net.spartan075.phenoltest.Registration;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.registries.RegistryObject;

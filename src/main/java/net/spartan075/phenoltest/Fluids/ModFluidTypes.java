@@ -1,6 +1,6 @@
-package PhenolTestMod.Fluids;
+package net.spartan075.phenoltest.Fluids;
 
-import PhenolTestMod.Registration;
+import net.spartan075.phenoltest.Registration;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.registries.RegistryObject;
