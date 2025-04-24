@@ -1,4 +1,4 @@
-package net.spartan075.phenoltest.blocks;
+package net.spartan075.phenoltest.block;
 
 
 import net.minecraft.core.BlockPos;

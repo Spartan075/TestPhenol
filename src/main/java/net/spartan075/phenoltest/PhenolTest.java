@@ -1,6 +1,9 @@
 package net.spartan075.phenoltest;
 
-import net.spartan075.phenoltest.Fluids.ModFluids;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.spartan075.phenoltest.fluid.FluidRegistration;
+import net.spartan075.phenoltest.fluid.ModFluids;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -13,7 +16,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.spartan075.phenoltest.items.PhenolCreativeModeTabs;
+import net.spartan075.phenoltest.block.BlockRegistration;
+import net.spartan075.phenoltest.item.ItemRegistration;
+import net.spartan075.phenoltest.item.PhenolCreativeModeTabs;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -29,11 +34,13 @@ public class PhenolTest {
     public PhenolTest(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
-        Registration.init(modEventBus);
+        ItemRegistration.register(modEventBus);
+        BlockRegistration.register(modEventBus);
+        FluidRegistration.register(modEventBus);
+
         PhenolCreativeModeTabs.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
-        modEventBus.addListener(Registration::addCreative);
         MinecraftForge.EVENT_BUS.register(this);
 
 
@@ -42,6 +49,7 @@ public class PhenolTest {
     private void commonSetup(final FMLCommonSetupEvent event) {
 
     }
+
 
 
     // Server start events
@@ -56,11 +64,11 @@ public class PhenolTest {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+/**
             // Set the oil fluid to be translucent
             ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_OIL.get(), RenderType.translucent());
             ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_OIL.get(), RenderType.translucent());
-
+**/
         }
     }
 }

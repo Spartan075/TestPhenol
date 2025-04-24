@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "phenoltest:phena_block"
+    }
+  ],
+  "result": {
+    "item": "phenoltest:phena",
+    "count": 9
+  }
+}

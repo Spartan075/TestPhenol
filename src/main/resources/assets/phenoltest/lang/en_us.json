@@ -1,4 +1,11 @@
 {
   "creativetab.phenol_tab": "Phenol Test Tab",
+  "item.phenoltest.mikan": "Mikan",
+  "block.phenoltest.oxidizer": "Oxidizer",
+  "item.phenoltest.oxidizer": "Oxidizer",
+  "item.phenoltest.phena": "Phena",
+  "item.phenoltest.phena_detector": "Phena Detector",
+  "block.phenoltest.raw_phena_block": "Phena Ore",
+  "block.phenoltest.phena_block": "Block of Phena",
   "item.phenoltest.sugoi_refinery": "Sugoi Refinery"
 }

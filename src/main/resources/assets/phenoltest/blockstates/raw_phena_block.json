@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "phenoltest:block/raw_phena_block"
+    }
+  }
+}

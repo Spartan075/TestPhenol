@@ -1,6 +1,5 @@
-package net.spartan075.phenoltest.Fluids;
+package net.spartan075.phenoltest.fluid;
 
-import net.spartan075.phenoltest.Registration;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.registries.RegistryObject;
@@ -14,7 +13,7 @@ public class ModFluidTypes {
 
 
     public static RegistryObject<FluidType> fluidRegister(String name, FluidType.Properties properties) {
-        return Registration.FLUID_TYPES.register(name, () -> new BaseFluidType(WATER_STILL_RL, WATER_FLOWING_RL, OIL_OVERLAY_RL, 0xA1202020,
+        return FluidRegistration.FLUID_TYPES.register(name, () -> new BaseFluidType(WATER_STILL_RL, WATER_FLOWING_RL, OIL_OVERLAY_RL, 0xA1202020,
                 new Vector3f(20f / 255f, 20f / 255f, 20f / 255f), properties));
     }
 }

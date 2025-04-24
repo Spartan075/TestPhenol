@@ -1,4 +1,4 @@
-package net.spartan075.phenoltest.Fluids;
+package net.spartan075.phenoltest.fluid;
 
 import com.mojang.blaze3d.shaders.FogShape;
 import com.mojang.blaze3d.systems.RenderSystem;
