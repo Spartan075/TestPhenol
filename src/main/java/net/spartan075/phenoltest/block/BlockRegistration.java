@@ -5,12 +5,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.spartan075.phenoltest.PhenolTest;
+import net.spartan075.phenoltest.block.custom.SoundBlock;
 import net.spartan075.phenoltest.item.ItemRegistration;
 
 import java.util.function.Supplier;
@@ -25,11 +25,14 @@ public class BlockRegistration {
     public static final RegistryObject<Block> OXIDIZER = registerBlock("oxidizer",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
-    public static final RegistryObject<Block> RAW_PHENA_BLOCK = registerBlock("raw_phena_block",
+    public static final RegistryObject<Block> PHENA_ORE = registerBlock("phena_ore",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)));
 
     public static final RegistryObject<Block> PHENA_BLOCK = registerBlock("phena_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.AMETHYST_BLOCK)));
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
+    public static final RegistryObject<Block> SOUND_BLOCK = registerBlock("sound_block",
+            () -> new SoundBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
     // Set up to make block registry easier. Also calls registerBlockItem to automatically create one.
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

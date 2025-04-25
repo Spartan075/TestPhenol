@@ -15,17 +15,20 @@ public class PhenolCreativeModeTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, PhenolTest.MODID);
 
     public static final RegistryObject<CreativeModeTab>  PHENOL_TAB = CREATIVE_MODE_TABS.register("phenol_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ItemRegistration.PHENA.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ItemRegistration.PHENA_INGOT.get()))
                     .title(Component.translatable("creativetab.phenol_tab"))
                     .displayItems((pParameters, pOutput) -> {
                         pOutput.accept(ItemRegistration.MIKAN.get());
                         pOutput.accept(ItemRegistration.PHENA_DETECTOR.get());
                         pOutput.accept(BlockRegistration.OXIDIZER.get());
 
-                        pOutput.accept(BlockRegistration.RAW_PHENA_BLOCK.get());
+                        pOutput.accept(BlockRegistration.PHENA_ORE.get());
+                        pOutput.accept(ItemRegistration.RAW_PHENA.get());
 
-                        pOutput.accept(ItemRegistration.PHENA.get());
+                        pOutput.accept(ItemRegistration.PHENA_INGOT.get());
                         pOutput.accept(BlockRegistration.PHENA_BLOCK.get());
+
+                        pOutput.accept(BlockRegistration.SOUND_BLOCK.get());
 
                     })
                     .build());

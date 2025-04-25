@@ -1,11 +1,23 @@
 {
   "creativetab.phenol_tab": "Phenol Test Tab",
+
   "item.phenoltest.mikan": "Mikan",
+
   "block.phenoltest.oxidizer": "Oxidizer",
   "item.phenoltest.oxidizer": "Oxidizer",
-  "item.phenoltest.phena": "Phena",
+
   "item.phenoltest.phena_detector": "Phena Detector",
-  "block.phenoltest.raw_phena_block": "Phena Ore",
+
+  "block.phenoltest.phena_ore": "Phena Ore",
+  "item.phenoltest.raw_phena": "Raw Phena",
+  "item.phenoltest.phena_ingot": "Phena Ingot",
   "block.phenoltest.phena_block": "Block of Phena",
-  "item.phenoltest.sugoi_refinery": "Sugoi Refinery"
+
+
+
+  "item.phenoltest.sugoi_refinery": "Sugoi Refinery",
+
+  "tooltip.phenoltest.phena_detector.tooltip": "Finds Phena underground",
+
+  "creativetab.phenol_tab": "Phenol Test"
 }
