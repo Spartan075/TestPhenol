@@ -27,10 +27,13 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(BlockRegistration.PHENA_BLOCK.get());
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(BlockRegistration.PHENA_BLOCK.get(),
-                        BlockRegistration.PHENA_ORE.get());
+                        BlockRegistration.PHENA_ORE.get(),
+                        BlockRegistration.OXIDIZER.get());
+
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(BlockRegistration.PHENA_ORE.get());
+                .add(BlockRegistration.PHENA_ORE.get(),
+                     BlockRegistration.OXIDIZER.get());
 
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(BlockRegistration.PHENA_BLOCK.get());

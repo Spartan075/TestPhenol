@@ -25,6 +25,9 @@ public class PhenolCreativeModeTabs {
                         pOutput.accept(BlockRegistration.PHENA_ORE.get());
                         pOutput.accept(ItemRegistration.RAW_PHENA.get());
 
+                        pOutput.accept(ItemRegistration.SULFUR.get());
+                        pOutput.accept(ItemRegistration.SULFURIC_ACID.get());
+
                         pOutput.accept(ItemRegistration.PHENA_INGOT.get());
                         pOutput.accept(BlockRegistration.PHENA_BLOCK.get());
 

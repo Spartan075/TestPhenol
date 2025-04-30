@@ -20,6 +20,12 @@ public class ItemRegistration {
     public static final RegistryObject<Item> RAW_PHENA = ITEMS.register("raw_phena",
             () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> SULFUR = ITEMS.register("sulfur",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> SULFURIC_ACID = ITEMS.register("sulfuric_acid",
+            () -> new Item(new Item.Properties()));
+
 
     public static final RegistryObject<Item> PHENA_INGOT = ITEMS.register("phena_ingot",
             () -> new Item(new Item.Properties()));

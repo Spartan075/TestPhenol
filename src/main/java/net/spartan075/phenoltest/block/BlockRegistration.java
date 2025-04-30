@@ -10,6 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.spartan075.phenoltest.PhenolTest;
+import net.spartan075.phenoltest.block.custom.OxidizerBlock;
 import net.spartan075.phenoltest.block.custom.SoundBlock;
 import net.spartan075.phenoltest.item.ItemRegistration;
 
@@ -22,14 +23,15 @@ public class BlockRegistration {
     public static final RegistryObject<Block> SUGOI_REFINERY_BLOCK = registerBlock("sugoi_refinery",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
-    public static final RegistryObject<Block> OXIDIZER = registerBlock("oxidizer",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
     public static final RegistryObject<Block> PHENA_ORE = registerBlock("phena_ore",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_ORE)));
 
     public static final RegistryObject<Block> PHENA_BLOCK = registerBlock("phena_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
+    public static final RegistryObject<Block> OXIDIZER = registerBlock(("oxidizer"),
+            () -> new OxidizerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(1f)));
 
     public static final RegistryObject<Block> SOUND_BLOCK = registerBlock("sound_block",
             () -> new SoundBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));

@@ -1,7 +1,9 @@
 package net.spartan075.phenoltest;
 
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.spartan075.phenoltest.block.entity.EntityRegistration;
 import net.spartan075.phenoltest.fluid.FluidRegistration;
 import net.spartan075.phenoltest.fluid.ModFluids;
 import com.mojang.logging.LogUtils;
@@ -19,6 +21,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.spartan075.phenoltest.block.BlockRegistration;
 import net.spartan075.phenoltest.item.ItemRegistration;
 import net.spartan075.phenoltest.item.PhenolCreativeModeTabs;
+import net.spartan075.phenoltest.screen.ModMenuTypes;
+import net.spartan075.phenoltest.screen.OxidizerScreen;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -37,8 +41,9 @@ public class PhenolTest {
         ItemRegistration.register(modEventBus);
         BlockRegistration.register(modEventBus);
         FluidRegistration.register(modEventBus);
-
+        EntityRegistration.register(modEventBus);
         PhenolCreativeModeTabs.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
         MinecraftForge.EVENT_BUS.register(this);
@@ -64,11 +69,8 @@ public class PhenolTest {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-/**
-            // Set the oil fluid to be translucent
-            ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_OIL.get(), RenderType.translucent());
-            ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_OIL.get(), RenderType.translucent());
-**/
+
+            MenuScreens.register(ModMenuTypes.OXIDIZER_MENU.get(), OxidizerScreen::new);
         }
     }
 }

@@ -27,6 +27,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(BlockRegistration.OXIDIZER.get());
         this.dropSelf(BlockRegistration.SUGOI_REFINERY_BLOCK.get());
         this.dropSelf(BlockRegistration.SOUND_BLOCK.get());
+        this.dropSelf(BlockRegistration.OXIDIZER.get());
 
         this.add(BlockRegistration.PHENA_ORE.get(),
                 block -> createPhenaOreDrops(BlockRegistration.PHENA_ORE.get(), ItemRegistration.RAW_PHENA.get()));

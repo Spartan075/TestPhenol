@@ -23,6 +23,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ItemRegistration.PHENA_INGOT);
         simpleItem(ItemRegistration.RAW_PHENA);
         simpleItem(ItemRegistration.PHENA_DETECTOR);
+        simpleItem(ItemRegistration.SULFUR);
+        simpleItem(ItemRegistration.SULFURIC_ACID);
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
