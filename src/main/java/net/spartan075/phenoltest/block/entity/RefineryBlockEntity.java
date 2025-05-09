@@ -22,11 +22,11 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.spartan075.phenoltest.item.ModItems;
-import net.spartan075.phenoltest.screen.OxidizerMenu;
+import net.spartan075.phenoltest.screen.RefineryMenu;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class OxidizerBlockEntity extends BlockEntity implements MenuProvider {
+public class RefineryBlockEntity extends BlockEntity implements MenuProvider {
 
     private final ItemStackHandler itemHandler = new ItemStackHandler(2);
 
@@ -39,15 +39,15 @@ public class OxidizerBlockEntity extends BlockEntity implements MenuProvider {
     private int progress = 0;
     private int maxProgress = 78;
 
-    public OxidizerBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(ModBlockEntities.OXIDIZER_BE.get(), pPos, pBlockState);
+    public RefineryBlockEntity(BlockPos pPos, BlockState pBlockState) {
+        super(ModBlockEntities.REFINERY_BE.get(), pPos, pBlockState);
         
         this.data = new ContainerData() {
             @Override
             public int get(int pIndex) {
                 return switch(pIndex) {
-                    case 0 -> OxidizerBlockEntity.this.progress;
-                    case 1 -> OxidizerBlockEntity.this.maxProgress;
+                    case 0 -> RefineryBlockEntity.this.progress;
+                    case 1 -> RefineryBlockEntity.this.maxProgress;
                     default -> 0;
                 };
             }
@@ -55,8 +55,8 @@ public class OxidizerBlockEntity extends BlockEntity implements MenuProvider {
             @Override
             public void set(int pIndex, int pValue) {
                 switch (pIndex) {
-                    case 0 -> OxidizerBlockEntity.this.progress = pValue;
-                    case 1 -> OxidizerBlockEntity.this.maxProgress = pValue;
+                    case 0 -> RefineryBlockEntity.this.progress = pValue;
+                    case 1 -> RefineryBlockEntity.this.maxProgress = pValue;
                 }
             }
 
@@ -98,12 +98,12 @@ public class OxidizerBlockEntity extends BlockEntity implements MenuProvider {
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable("item.phenoltest.oxidizer");
+        return Component.translatable("item.phenoltest.refinery");
     }
 
     @Override
     public @Nullable AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
-        return new OxidizerMenu(pContainerId, pPlayerInventory, this, this.data);
+        return new RefineryMenu(pContainerId, pPlayerInventory, this, this.data);
     }
 
     @Override

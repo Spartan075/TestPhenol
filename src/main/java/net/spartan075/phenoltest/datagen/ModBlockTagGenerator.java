@@ -3,12 +3,11 @@ package net.spartan075.phenoltest.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.spartan075.phenoltest.PhenolTest;
-import net.spartan075.phenoltest.block.BlockRegistration;
+import net.spartan075.phenoltest.block.ModBlocks;
 import net.spartan075.phenoltest.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
@@ -23,19 +22,23 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
         this.tag(ModTags.Blocks.PHENA_DETECTOR_VALUABLES)
-                .add(BlockRegistration.PHENA_ORE.get()).addTag(Tags.Blocks.ORES)
-                .add(BlockRegistration.PHENA_BLOCK.get());
+                .add(ModBlocks.PHENA_ORE.get()).addTag(Tags.Blocks.ORES)
+                .add(ModBlocks.PHENA_BLOCK.get());
+
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(BlockRegistration.PHENA_BLOCK.get(),
-                        BlockRegistration.PHENA_ORE.get(),
-                        BlockRegistration.OXIDIZER.get());
+                .add(ModBlocks.PHENA_BLOCK.get(),
+                        ModBlocks.PHENA_ORE.get(),
+                        ModBlocks.OXIDIZER.get(),
+                        ModBlocks.REFINERY_BLOCK.get(),
+                        ModBlocks.PHENOL_CONVERTER.get());
+
 
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(BlockRegistration.PHENA_ORE.get(),
-                     BlockRegistration.OXIDIZER.get());
+                .add(ModBlocks.PHENA_ORE.get(),
+                     ModBlocks.OXIDIZER.get());
 
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
-                .add(BlockRegistration.PHENA_BLOCK.get());
+                .add(ModBlocks.PHENA_BLOCK.get());
     }
 }

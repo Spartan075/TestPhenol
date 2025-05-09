@@ -10,14 +10,16 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.spartan075.phenoltest.PhenolTest;
 
-import java.awt.*;
-
 public class ModMenuTypes {
     public static final DeferredRegister<MenuType<?>> MENUS =
             DeferredRegister.create(ForgeRegistries.MENU_TYPES, PhenolTest.MODID);
 
     public static final RegistryObject<MenuType<OxidizerMenu>> OXIDIZER_MENU =
             registerMenuType("oxidizer_menu", OxidizerMenu::new);
+
+    public static final RegistryObject<MenuType<PhenolConverterMenu>> PHENOL_CONVERTER_MENU =
+            registerMenuType("phenol_converter_menu", PhenolConverterMenu::new);
+
 
     private static <T extends AbstractContainerMenu>RegistryObject<MenuType<T>> registerMenuType(String name, IContainerFactory<T> factory) {
         return MENUS.register(name, () -> IForgeMenuType.create(factory));

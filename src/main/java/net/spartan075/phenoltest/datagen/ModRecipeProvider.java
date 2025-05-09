@@ -8,15 +8,15 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.spartan075.phenoltest.PhenolTest;
-import net.spartan075.phenoltest.block.BlockRegistration;
-import net.spartan075.phenoltest.item.ItemRegistration;
+import net.spartan075.phenoltest.block.ModBlocks;
+import net.spartan075.phenoltest.item.ModItems;
 
 import java.util.List;
 import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
 
-    private static final List<ItemLike> PHENA_SMELTABLES = List.of(ItemRegistration.RAW_PHENA.get(), BlockRegistration.PHENA_ORE.get());
+    private static final List<ItemLike> PHENA_SMELTABLES = List.of(ModItems.RAW_PHENA.get(), ModBlocks.PHENA_ORE.get());
 
     public ModRecipeProvider(PackOutput pOutput) {
         super(pOutput);
@@ -25,20 +25,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
 
-        oreBlasting(pWriter, PHENA_SMELTABLES, RecipeCategory.MISC, ItemRegistration.PHENA_INGOT.get(), 0.25f, 200, "phena");
-        oreSmelting(pWriter, PHENA_SMELTABLES, RecipeCategory.MISC, ItemRegistration.PHENA_INGOT.get(), 0.25f, 100, "phena");
+        oreBlasting(pWriter, PHENA_SMELTABLES, RecipeCategory.MISC, ModItems.PHENA_INGOT.get(), 0.25f, 200, "phena");
+        oreSmelting(pWriter, PHENA_SMELTABLES, RecipeCategory.MISC, ModItems.PHENA_INGOT.get(), 0.25f, 100, "phena");
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BlockRegistration.PHENA_BLOCK.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.PHENA_BLOCK.get())
                 .pattern("SSS")
                 .pattern("SSS")
                 .pattern("SSS")
-                .define('S', ItemRegistration.PHENA_INGOT.get())
-                .unlockedBy(getHasName(ItemRegistration.PHENA_INGOT.get()), has(ItemRegistration.PHENA_INGOT.get()))
+                .define('S', ModItems.PHENA_INGOT.get())
+                .unlockedBy(getHasName(ModItems.PHENA_INGOT.get()), has(ModItems.PHENA_INGOT.get()))
                 .save(pWriter);
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ItemRegistration.PHENA_INGOT.get(), 9)
-                .requires(BlockRegistration.PHENA_BLOCK.get())
-                .unlockedBy(getHasName(BlockRegistration.PHENA_BLOCK.get()), has(BlockRegistration.PHENA_BLOCK.get()))
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.PHENA_INGOT.get(), 9)
+                .requires(ModBlocks.PHENA_BLOCK.get())
+                .unlockedBy(getHasName(ModBlocks.PHENA_BLOCK.get()), has(ModBlocks.PHENA_BLOCK.get()))
                 .save(pWriter);
     }
 

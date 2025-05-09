@@ -6,14 +6,20 @@
   "block.phenoltest.oxidizer": "Oxidizer",
   "item.phenoltest.oxidizer": "Oxidizer",
 
+  "block.phenoltest.refinery": "Refinery",
+  "item.phenoltest.refinery": "Refinery",
+
   "item.phenoltest.phena_detector": "Phena Detector",
   "item.phenoltest.sulfur": "Sulfur",
   "item.phenoltest.sulfuric_acid": "Sulfuric Acid",
+  "item.phenoltest.solid_phenol":  "Solid Phenol",
 
   "block.phenoltest.phena_ore": "Phena Ore",
   "item.phenoltest.raw_phena": "Raw Phena",
   "item.phenoltest.phena_ingot": "Phena Ingot",
   "block.phenoltest.phena_block": "Block of Phena",
+
+  "item.phenoltest.oil_bucket": "Bucket of Oil",
 
 
 
@@ -21,5 +27,6 @@
 
   "tooltip.phenoltest.phena_detector.tooltip": "Finds Phena underground",
 
-  "creativetab.phenol_tab": "Phenol Test"
+  "creativetab.phenol_tab": "Phenol Test",
+  "block.phenoltest.phenol_converter": "Phenol Converter"
 }

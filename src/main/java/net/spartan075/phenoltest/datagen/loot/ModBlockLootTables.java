@@ -11,8 +11,8 @@ import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
-import net.spartan075.phenoltest.block.BlockRegistration;
-import net.spartan075.phenoltest.item.ItemRegistration;
+import net.spartan075.phenoltest.block.ModBlocks;
+import net.spartan075.phenoltest.item.ModItems;
 
 import java.util.Set;
 
@@ -23,14 +23,16 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        this.dropSelf(BlockRegistration.PHENA_BLOCK.get());
-        this.dropSelf(BlockRegistration.OXIDIZER.get());
-        this.dropSelf(BlockRegistration.SUGOI_REFINERY_BLOCK.get());
-        this.dropSelf(BlockRegistration.SOUND_BLOCK.get());
-        this.dropSelf(BlockRegistration.OXIDIZER.get());
+        this.dropSelf(ModBlocks.PHENA_BLOCK.get());
+        this.dropSelf(ModBlocks.OXIDIZER.get());
+        this.dropSelf(ModBlocks.SUGOI_REFINERY_BLOCK.get());
+        this.dropSelf(ModBlocks.SOUND_BLOCK.get());
+        this.dropSelf(ModBlocks.OXIDIZER.get());
+        this.dropSelf(ModBlocks.REFINERY_BLOCK.get());
+        this.dropSelf(ModBlocks.PHENOL_CONVERTER.get());
 
-        this.add(BlockRegistration.PHENA_ORE.get(),
-                block -> createPhenaOreDrops(BlockRegistration.PHENA_ORE.get(), ItemRegistration.RAW_PHENA.get()));
+        this.add(ModBlocks.PHENA_ORE.get(),
+                block -> createPhenaOreDrops(ModBlocks.PHENA_ORE.get(), ModItems.RAW_PHENA.get()));
     }
 
     protected LootTable.Builder createPhenaOreDrops(Block pBlock, Item item) {
@@ -43,6 +45,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
     @Override
     protected  Iterable<Block> getKnownBlocks() {
-        return BlockRegistration.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
+        return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
     }
 }

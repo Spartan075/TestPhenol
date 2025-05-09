@@ -10,31 +10,36 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 import net.spartan075.phenoltest.block.ModBlocks;
-import net.spartan075.phenoltest.block.entity.OxidizerBlockEntity;
+import net.spartan075.phenoltest.block.entity.PhenolConverterBlockEntity;
 
-public class OxidizerMenu extends AbstractContainerMenu {
-    public final OxidizerBlockEntity blockEntity;
+public class PhenolConverterMenu extends AbstractContainerMenu {
+
+    public final PhenolConverterBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
 
-    public OxidizerMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
+
+
+    public PhenolConverterMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
         this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
     }
 
-    public OxidizerMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
-        super(ModMenuTypes.OXIDIZER_MENU.get(), pContainerId);
+    public PhenolConverterMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
+        super(ModMenuTypes.PHENOL_CONVERTER_MENU.get(), pContainerId);
         checkContainerSize(inv, 2);
-        blockEntity = (OxidizerBlockEntity) entity;
+        blockEntity = (PhenolConverterBlockEntity) entity;
         this.level = inv.player.level();
         this.data = data;
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
+        // LATER ME: Item square is 18x18 pixels, adjust if needed to center item
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(iItemHandler -> {
-            this.addSlot(new SlotItemHandler(iItemHandler, 0, 80, 11));
-            this.addSlot(new SlotItemHandler(iItemHandler, 1, 80, 59));
-        });
+                this.addSlot(new SlotItemHandler(iItemHandler, 0, 27, 35));
+                this.addSlot(new SlotItemHandler(iItemHandler, 1, 80, 59));
+                });
+
 
         addDataSlots(data);
     }
@@ -46,26 +51,19 @@ public class OxidizerMenu extends AbstractContainerMenu {
     public int getScaledProgress() {
         int progress = this.data.get(0);
         int maxProgress = this.data.get(1);
-        int progressArrowSize = 26;
+        int progressArrowSize = 27;
 
-        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
-    }
-
-
-
-    private void addPlayerInventory(Inventory playerInventory) {
-        for (int i = 0; i < 3; ++i) {
-            for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 84 + i * 18));
-            }
+        if(maxProgress != 0 && progress != 0) {
+            return progress * progressArrowSize / maxProgress;
+        } else {
+            return 0;
         }
     }
 
-    private void addPlayerHotbar(Inventory playerInventory) {
-        for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
-        }
-    }
+
+
+    // This is scary - but a necessary thing to shift-click items into the inventory. No touchie
+    // Also everything below this line is weird boilerplate stuff that will almost never need to be modified.
 
     // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
     // must assign a slot number to each of the slots used by the GUI.
@@ -120,6 +118,21 @@ public class OxidizerMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.OXIDIZER.get());
+                pPlayer, ModBlocks.PHENOL_CONVERTER.get());
     }
+
+    private void addPlayerInventory(Inventory playerInventory) {
+        for (int i = 0; i < 3; ++i) {
+            for (int l = 0; l < 9; ++l) {
+                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 84 + i * 18));
+            }
+        }
+    }
+
+    private void addPlayerHotbar(Inventory playerInventory) {
+        for (int i = 0; i < 9; ++i) {
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
+        }
+    }
+
 }

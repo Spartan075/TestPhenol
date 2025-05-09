@@ -10,21 +10,22 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 import net.spartan075.phenoltest.block.ModBlocks;
-import net.spartan075.phenoltest.block.entity.OxidizerBlockEntity;
+import net.spartan075.phenoltest.block.entity.RefineryBlockEntity;
 
-public class OxidizerMenu extends AbstractContainerMenu {
-    public final OxidizerBlockEntity blockEntity;
+public class RefineryMenu extends AbstractContainerMenu {
+    public final RefineryBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
 
-    public OxidizerMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
+
+    public RefineryMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
         this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
     }
 
-    public OxidizerMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
+    public RefineryMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.OXIDIZER_MENU.get(), pContainerId);
         checkContainerSize(inv, 2);
-        blockEntity = (OxidizerBlockEntity) entity;
+        blockEntity = (RefineryBlockEntity) entity;
         this.level = inv.player.level();
         this.data = data;
 
@@ -39,33 +40,8 @@ public class OxidizerMenu extends AbstractContainerMenu {
         addDataSlots(data);
     }
 
-    public boolean isCrafting() {
-        return data.get(0) > 0;
-    }
-
-    public int getScaledProgress() {
-        int progress = this.data.get(0);
-        int maxProgress = this.data.get(1);
-        int progressArrowSize = 26;
-
-        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
-    }
 
 
-
-    private void addPlayerInventory(Inventory playerInventory) {
-        for (int i = 0; i < 3; ++i) {
-            for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 84 + i * 18));
-            }
-        }
-    }
-
-    private void addPlayerHotbar(Inventory playerInventory) {
-        for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
-        }
-    }
 
     // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
     // must assign a slot number to each of the slots used by the GUI.
@@ -117,9 +93,23 @@ public class OxidizerMenu extends AbstractContainerMenu {
         return copyOfSourceStack;
     }
 
+    private void addPlayerInventory(Inventory playerInventory) {
+        for (int i = 0; i < 3; ++i) {
+            for (int l = 0; l < 9; ++l) {
+                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 84 + i * 18));
+            }
+        }
+    }
+
+    private void addPlayerHotbar(Inventory playerInventory) {
+        for (int i = 0; i < 9; ++i) {
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
+        }
+    }
+
     @Override
     public boolean stillValid(Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.OXIDIZER.get());
+                pPlayer, ModBlocks.REFINERY_BLOCK.get());
     }
 }

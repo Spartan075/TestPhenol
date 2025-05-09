@@ -22,10 +22,10 @@ import net.spartan075.phenoltest.block.entity.ModBlockEntities;
 import net.spartan075.phenoltest.block.entity.OxidizerBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
-public class OxidizerBlock extends BaseEntityBlock {
-    public static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 16, 16);
+public class RefineryBlock extends BaseEntityBlock {
+    public static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 32, 16);
 
-    public OxidizerBlock(Properties pProperties) {
+    public RefineryBlock(Properties pProperties) {
         super(pProperties);
     }
 
@@ -62,6 +62,8 @@ public class OxidizerBlock extends BaseEntityBlock {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
             if(entity instanceof OxidizerBlockEntity) {
                 NetworkHooks.openScreen((ServerPlayer)pPlayer, (OxidizerBlockEntity)entity, pPos);
+            } else {
+                throw new IllegalStateException("Our Container provider is missing!");
             }
         }
 
